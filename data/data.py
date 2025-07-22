@@ -5,7 +5,7 @@ from utils.generators import Generator
 class Payloads:
 
     @staticmethod
-    @allure.step("Создание данных пользователя")
+    @allure.step("Create user data")
     def generate_user_data():
         return {
             "email": Generator.generate_email(),
