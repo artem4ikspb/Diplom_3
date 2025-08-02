@@ -1,10 +1,10 @@
 import allure
 
+from data.urls import Urls
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
-from data.urls import Urls
 
 
 class BasePage:
@@ -40,7 +40,7 @@ class BasePage:
     def find(self, locator):
         return self.browser.find_element(*locator)
 
-    def forse_click(self, locator):
+    def direct_click(self, locator):
         element = self.find(locator)
         self.browser.execute_script("arguments[0].click();", element)
 
