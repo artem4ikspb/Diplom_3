@@ -19,7 +19,7 @@ class TestMainFeatures:
     def test_redirect_by_order_list_button(self, browser):
         page = MainPage(browser)
         page.open()
-        page.go_to_orders_feed_button()
+        page.click_orders_feed_button()
         assert page.current_url() == Urls.ORDER_FEED_URL
 
     @allure.title("Если кликнуть на ингредиент, появится всплывающее окно с деталями")

@@ -2,6 +2,7 @@
 import allure
 
 from locators.main_page_locators import MainPageLocators as MPL
+from locators.order_feed_page_locators import OrderFeedPageLocators as OFPL
 from pages.base_page import BasePage
 
 
@@ -29,4 +30,5 @@ class MainPage(BasePage):
     @allure.step("Click to 'Лента Заказов'")
     def click_orders_feed_button(self):
         self.direct_click(MPL.ORDER_FEED_BUTTON)
+        self.wait_for_visible(OFPL.ORDER_IN_FEED_LINK)
 

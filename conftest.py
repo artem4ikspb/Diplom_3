@@ -5,16 +5,29 @@ from pages.constructor_page import ConstructorPage
 from pages.login_page import LoginPage
 from pages.main_page import MainPage
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+
 from utils.api_client import APIClient
 
 
 @pytest.fixture(params=["Chrome", "Firefox"])
 def browser(request):
     if request.param == "Chrome":
-        browser = webdriver.Chrome()
+        browser_options = ChromeOptions()
+        browser_options.add_argument("--headless")
+        browser_options.add_argument('--disable-default-apps')
+        browser_options.add_argument("--disable-extensions")
+        browser_options.add_argument('--window-size=1280, 1024')
+        browser = webdriver.Chrome(options=browser_options)
     else:
-        browser = webdriver.Firefox()
-    browser.set_window_size(1280, 1024)
+        browser_options = FirefoxOptions()
+        browser_options.add_argument("--headless")
+        browser_options.add_argument('--disable-default-apps')
+        browser_options.add_argument("--disable-extensions")
+        browser_options.add_argument('--window-size=1280, 1024')
+        browser = webdriver.Firefox(options=browser_options)
+    # browser.set_window_size(1280, 1024)
     yield browser
     browser.quit()
 
