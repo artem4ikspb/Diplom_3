@@ -18,6 +18,8 @@ def browser(request):
         browser_options.add_argument("--headless")
         browser_options.add_argument('--disable-default-apps')
         browser_options.add_argument("--disable-extensions")
+        browser_options.add_argument("--disable-notifications")
+        browser_options.add_argument("--disable-popup-blocking")
         browser_options.add_argument('--window-size=1280, 1024')
         browser = webdriver.Chrome(options=browser_options)
     else:
@@ -25,6 +27,8 @@ def browser(request):
         browser_options.add_argument("--headless")
         browser_options.add_argument('--disable-default-apps')
         browser_options.add_argument("--disable-extensions")
+        browser_options.add_argument("--disable-notifications")
+        browser_options.add_argument("--disable-popup-blocking")
         browser_options.add_argument('--window-size=1280, 1024')
         browser = webdriver.Firefox(options=browser_options)
     # browser.set_window_size(1280, 1024)

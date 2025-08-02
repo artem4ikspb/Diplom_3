@@ -20,4 +20,5 @@ class PasswordRestorePage(BasePage):
 
     @allure.step("Проверка, что поле пароля активно")
     def check_is_password_field_active(self):
+        self.wait_for_visible(PRPL.PASSWORD_FIELD_IS_ACTIVE)
         return self.check_displaying_of_element(PRPL.PASSWORD_FIELD_IS_ACTIVE)

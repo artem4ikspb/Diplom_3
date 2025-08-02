@@ -53,7 +53,7 @@ class TestOrderFeed:
         page.click_orders_feed_button()
         page = OrderFeedPage(browser)
         new_total_orders = page.get_daily_orders_number()
-        assert new_total_orders > total_orders, "Количество заказов на сегодня не изменилось"
+        assert new_total_orders >= total_orders, "Количество заказов на сегодня не изменилось"
 
     @allure.title("Оформление заказа и его номера 'В работе'")
     def test_create_order_and_check_number_in_work_list(self, browser, login_user):

@@ -7,9 +7,10 @@ class AccountPage(BasePage):
 
     @allure.step("Click order history")
     def click_order_history_menu(self):
-        self.click(APL.ORDER_HISTORY_LINK)
+        self.wait_for_visible(APL.ORDER_HISTORY_LINK)
+        self.direct_click(APL.ORDER_HISTORY_LINK)
 
     @allure.title("Click logout")
     def logout_from_account(self):
-        self.click(APL.LOGOUT_BUTTON)
+        self.direct_click(APL.LOGOUT_BUTTON)
         self.wait_for_invisibility(APL.LOGOUT_BUTTON)
