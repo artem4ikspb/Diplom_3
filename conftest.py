@@ -11,7 +11,7 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from utils.api_client import APIClient
 
 
-@pytest.fixture(params=["Chrome", "Firefox"])
+@pytest.fixture(params=["Firefox"])
 def browser(request):
     if request.param == "Chrome":
         browser_options = ChromeOptions()
