@@ -12,5 +12,6 @@ class AccountPage(BasePage):
 
     @allure.title("Click logout")
     def logout_from_account(self):
+        self.wait_for_visible(APL.LOGOUT_BUTTON)
         self.direct_click(APL.LOGOUT_BUTTON)
         self.wait_for_invisibility(APL.LOGOUT_BUTTON)
